@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 py-4">
+
+          {{#if saved_msg}}
+            <div class="alert alert-success">
+              <strong>Success!</strong> User Added/Updated successfully.
+            </div>
+          {{/if}}
+          <div class="card">
+            <div class="card-header">{{title}}
+
+              <a href="/users/create" class="btn btn-primary">Add User</a>
+            </div>
+            <div class="card-body">
+                {{#each users}}
+
+                <div class="media border p-3 mb-2">
+                  <img src="https://picsum.photos/100/100" alt="John Doe" class="mr-3 mt-0 rounded-circle" style="width:60px;">
+                  <div class="media-body">
+                    <h5>{{this.name}}</h5>
+                    <p>Mail: {{this.email}} | City: {{this.city}} </p>
+                    <a @click="deleteUser(`{{this._id}}`)">Delete</a>
+                  </div>
+                </div>
+                {{/each}}
+            </div>
+          </div>
+
+
+        </div>
+    </div>
+</div>
